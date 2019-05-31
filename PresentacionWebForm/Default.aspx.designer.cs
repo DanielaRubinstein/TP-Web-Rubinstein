@@ -13,12 +13,12 @@ namespace PresentacionWebForm {
     public partial class _Default {
         
         /// <summary>
-        /// BOTON control.
+        /// dgvProducto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BOTON;
+        protected global::System.Web.UI.WebControls.GridView dgvProducto;
     }
 }

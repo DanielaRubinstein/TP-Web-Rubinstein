@@ -9,18 +9,19 @@ using Dominio;
 
 namespace PresentacionWebForm
 {
-    public partial class _Default : Page
+    public partial class _Default : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ProductoNegocio productoNegocio = new ProductoNegocio();
+            Producto producto = productoNegocio.MostrarProducto();
+            dgvProducto.DataSource = productoNegocio;
+            dgvProducto.DataBind();
 
         }
+        
 
-        protected void BOTON_Click(object sender, EventArgs e)
-        {
-            ClienteNegocio cline = new ClienteNegocio();
-            Cliente cliente = cline.PrecargarCliente(2);
+    
 
-        }
     }
 }

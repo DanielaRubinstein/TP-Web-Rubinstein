@@ -38,7 +38,6 @@ namespace Negocio
             {
                 accesoDatos.cerrarConexion();
             }
-        
         }
 
         //Precargar los datos del cliente, si ya esta ingresado
@@ -55,6 +54,7 @@ namespace Negocio
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
                 //validar si existe algun cliente
+
                 cliente = new Cliente();
                 if (accesoDatos.Lector.HasRows)
                 { 
@@ -78,7 +78,6 @@ namespace Negocio
             {
                 accesoDatos.cerrarConexion();
             }
-
             return cliente;
         }
 
