@@ -34,7 +34,6 @@ namespace Negocio
                 {
                     return true;
                 }
-
             }
             catch(Exception ex)
             {
