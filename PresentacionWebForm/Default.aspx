@@ -11,7 +11,7 @@
     </div>--%>
 
     <div class="header" style="font-family: lato;position:relative;line-height: 3.1;background-color:cornflowerblue;text-align:center;width:21.6%;">Ingresa tu cupon</div>
-    <asp:TextBox ID="txtVoucher" runat="server" OnTextChanged="txtVoucher_TextChanged"></asp:TextBox>
-    <asp:Button ID="btnVoucher" runat="server" Text="Siguiente" OnClick="btnVoucher_Click" style="float:right;" />
+    <asp:TextBox ID="txtVoucher" runat="server"></asp:TextBox>
+    <asp:Button ID="btnVoucher" runat="server" Text="Siguiente" OnClick="btnVoucher_Click" />
 
 </asp:Content>

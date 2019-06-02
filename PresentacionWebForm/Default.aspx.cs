@@ -26,14 +26,5 @@ namespace PresentacionWebForm
             Response.Redirect("~/Productos.aspx");
         }
 
-        protected void txtVoucher_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/prueba.aspx");
-        }
     }
 }
