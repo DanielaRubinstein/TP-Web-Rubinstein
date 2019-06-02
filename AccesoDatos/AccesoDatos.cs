@@ -28,7 +28,6 @@ namespace AccesoDatos
             conexion = new SqlConnection(cadenaConexion);
         }
 
-        //setear consulta embebida.
         public void setearConsulta(string consulta)
         {
             comando = new SqlCommand();

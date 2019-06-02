@@ -50,3 +50,8 @@ BEGIN
 END;
 
 select count(id) from Vouchers
+
+
+--info de productos
+insert into Productos  (Titulo, Descripcion, URLImagen) 
+values('Vans zapatillas ', 'Kyle Walker Pro', 'https://images.vans.com/is/image/Vans/XSGY28-HERO')

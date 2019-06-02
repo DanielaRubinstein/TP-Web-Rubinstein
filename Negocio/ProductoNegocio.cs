@@ -13,30 +13,29 @@ namespace Negocio
         //traer los productos desde la base de datos 
         //para mostrar en la web (carrousel por mundos)
 
-        public Producto MostrarProducto(int Id)
+        public List<Producto> mostrarProducto()
         {
             AccesoDatosManager accesoDatos = new AccesoDatosManager();
+            List<Producto> listaProducto = new List<Producto>();
             Producto producto;
             try
             {
-                accesoDatos.setearConsulta("Select * from Productos where Id=@Id");
-                accesoDatos.Comando.Parameters.Clear();
-                accesoDatos.Comando.Parameters.AddWithValue("@Id", Id);
+                accesoDatos.setearConsulta("Select Id,Titulo,Descripcion,URLImagen from Productos");
+                //accesoDatos.Comando.Parameters.Clear();
+                //accesoDatos.Comando.Parameters.AddWithValue("@Id");
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
 
-                producto = new Producto();
-                if (accesoDatos.Lector.HasRows)
+                while (accesoDatos.Lector.Read())
                 {
-                    accesoDatos.Lector.Read();
-                    producto.Id = (int)accesoDatos.Lector["Id"];
+                    producto = new Producto();  
+                    producto.Id = (Int64)accesoDatos.Lector["Id"];
                     producto.Titulo = accesoDatos.Lector["Titulo"].ToString();
                     producto.Descripcion = accesoDatos.Lector["Descripcion"].ToString();
                     producto.URLImagen = accesoDatos.Lector["URLImagen"].ToString();
-                    
+                    listaProducto.Add(producto);
                 }
-                return producto;
-
+                return listaProducto;
             }
 
             catch (Exception ex)
@@ -46,10 +45,15 @@ namespace Negocio
             finally
             {
                 accesoDatos.cerrarConexion();
-            }
-           
-           
+            }  
         }
+
+
+        //public Producto seleccionProducto(Int64 Id)
+        //{
+        //    AccesoDatosManager accesoDatos = new AccesoDatosManager();
+        //    Producto producto;
+        //}
 
 
     }

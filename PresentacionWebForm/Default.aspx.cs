@@ -13,15 +13,17 @@ namespace PresentacionWebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ProductoNegocio productoNegocio = new ProductoNegocio();
-            Producto producto = productoNegocio.MostrarProducto();
-            dgvProducto.DataSource = productoNegocio;
-            dgvProducto.DataBind();
+            //ProductoNegocio productoNegocio = new ProductoNegocio();
+            //List<Producto> producto = productoNegocio.mostrarProducto();
+            //dgvProducto.DataSource = producto;
+            //dgvProducto.DataBind();
 
         }
-        
 
-    
-
+        protected void btnVoucher_Click(object sender, EventArgs e)
+        {
+            Session.Add("codigo",txtVoucher.Text);
+            Response.Redirect("~/Productos.aspx");
+        }
     }
 }
