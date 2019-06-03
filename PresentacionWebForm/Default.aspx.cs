@@ -22,8 +22,17 @@ namespace PresentacionWebForm
 
         protected void btnVoucher_Click(object sender, EventArgs e)
         {
-            Session.Add("codigo",txtVoucher.Text);
-            Response.Redirect("~/Productos.aspx");
+            VoucherNegocio voucherNegocio = new VoucherNegocio();
+            bool checkVoucher = voucherNegocio.ValidarVoucher(txtVoucher.Text);
+            if (checkVoucher==true)
+            {
+                Session.Add("codigo", txtVoucher.Text);
+                Response.Redirect("~/Productos.aspx");
+            }
+            else
+            {
+                txtVoucher.Text = "Ingrese codigo valido";
+            }
         }
 
     }

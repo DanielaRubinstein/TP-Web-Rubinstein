@@ -20,22 +20,29 @@ namespace Negocio
         //con un botón para redirigir al inicio.
         public bool ValidarVoucher(string CodigoVoucher)
         {
+            List<Voucher> listado = new List<Voucher>();
             AccesoDatosManager accesoDatos = new AccesoDatosManager();
-
+            Voucher voucher;
             try
             {
-                accesoDatos.setearConsulta("Select * from Vouchers where CodigoVoucher=@CodigoVoucher and Estado=0");
+                accesoDatos.setearConsulta("Select CodigoVoucher from Vouchers where CodigoVoucher=@CodigoVoucher and Estado=0");
                 accesoDatos.Comando.Parameters.Clear();
-                accesoDatos.Comando.Parameters.AddWithValue("@CodigoVoucher",CodigoVoucher);
+                accesoDatos.Comando.Parameters.AddWithValue("@CodigoVoucher", CodigoVoucher);
                 accesoDatos.abrirConexion();
                 accesoDatos.ejecutarConsulta();
-
-                if(accesoDatos.Lector.HasRows)
+                while (accesoDatos.Lector.Read())
                 {
-                    return true;
+                    voucher = new Voucher();
+                    voucher.CodigoVoucher = accesoDatos.Lector["CodigoVoucher"].ToString();
+                    listado.Add(voucher);
                 }
+
+                if (listado.Count == 0)
+                    return false;
+                else
+                    return true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -43,7 +50,6 @@ namespace Negocio
             {
                 accesoDatos.cerrarConexion();
             }
-            return false;
         }
 
         public void CambiarEstado(Voucher modificar)
