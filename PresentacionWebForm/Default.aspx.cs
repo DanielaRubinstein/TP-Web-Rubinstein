@@ -31,7 +31,7 @@ namespace PresentacionWebForm
             }
             else
             {
-                txtVoucher.Text = "Ingrese codigo valido";
+                txtVoucher.Text = "Ingrese un código válido";
             }
         }
 

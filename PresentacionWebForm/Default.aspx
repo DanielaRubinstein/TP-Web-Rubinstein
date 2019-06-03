@@ -10,7 +10,7 @@
            <asp:Button ID="btnVoucher" runat="server" Text="Siguiente" OnClick="btnVoucher_Click" style="float:right;" />
     </div>--%>
 
-    <div class="header" style="font-family: lato;position:relative;line-height: 3.1;background-color:cornflowerblue;text-align:center;width:21.6%;">Ingresa tu cupon</div>
+    <div class="header" style="font-family: lato;position:relative;line-height: 3.1;background-color:cornflowerblue;text-align:center;width:21.6%;">Ingresa tu cupón</div>
     <asp:TextBox ID="txtVoucher" runat="server"></asp:TextBox>
     <asp:Button ID="btnVoucher" runat="server" Text="Siguiente" OnClick="btnVoucher_Click" />
 
